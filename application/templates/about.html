@@ -1,0 +1,267 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>SereneTours</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="" name="keywords">
+        <meta content="" name="description">
+
+        <!-- Google Web Fonts -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap" rel="stylesheet">
+
+        <!-- Icon Font Stylesheet -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+        <!-- Libraries Stylesheet -->
+        <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+        <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+
+        <!-- Customized Bootstrap Stylesheet -->
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+        <!-- Template Stylesheet -->
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    </head>
+
+    <body>
+
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+        <!-- Navbar & Hero Start -->
+
+
+        <!-- Header Start -->
+        <div class="container-fluid bg-breadcrumb">
+            <div class="container text-center py-5" style="max-width: 900px;">
+                <h4 class="text-white display-4 mb-4 wow fadeInDown" data-wow-delay="0.1s">About Us</h4>
+                <ol class="breadcrumb d-flex justify-content-center mb-0 wow fadeInDown" data-wow-delay="0.3s">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item active text-primary">About</li>
+                </ol>    
+            </div>
+        </div>
+        <!-- Header End -->
+
+        <!-- About Start -->
+        <div class="container-fluid about py-5">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div>
+                            <h4 class="text-primary">About SereneTours</h4>
+                            <h1 class="display-5 mb-4">A premier tour and travel website devoted to ensuring you have the best holidays</h1>
+                            <p class="mb-5">We offer personalized travel packages, affordable bookings, and seamless itineraries for local destinations. Whether planning a relaxing getaway, adventurous trip, or cultural exploration, Serene Tours ensures a hassle-free experience. With user-friendly navigation and expert travel insights, it’s your trusted companion for unforgettable journeys. Explore, book, and travel effortlessly!
+                            </p>
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <div class="d-flex">
+                                        <div class="me-3"><i class="fas fa-glass-cheers fa-3x text-primary"></i></div>
+                                        <div>
+                                            <h4>Food & Drinks</h4>
+                                            <p>Visit hotels offering the best meals, ensuring a delightful dining experience during your trip.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex">
+                                        <div class="me-3"><i class="fas fa-dot-circle fa-3x text-primary"></i></div>
+                                        <div>
+                                            <h4>Many Attractions</h4>
+                                            <p>Our destinations offer a variety of stunning scenery, cultural sites to explore, and hidden gems waiting to be discovered.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex">
+                                        <div class="me-3"><i class="fas fa-hand-holding-usd fa-3x text-primary"></i></div>
+                                        <div>
+                                            <h4>Affordable Price</h4>
+                                            <p>You don’t have to spend a fortune to travel with us—there are options for every budget.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="d-flex">
+                                        <div class="me-3"><i class="fas fa-spa fa-3x text-primary"></i></div>
+                                        <div>
+                                            <h4>Great Discounts</h4>
+                                            <p>The higher the number of travellers the higher the discount! No one should be left behind.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="position-relative rounded">
+                            <div class="rounded" style="margin-top: 40px;">
+                                <div class="row g-0">
+                                    <div class="col-lg-12">
+                                        <div class="rounded mb-4">
+                                            <img src="{% static 'img/Hot air balloon during safari.jpg' %}" class="img-fluid rounded w-100" alt="">
+                                        </div>
+                                        <div class="row gx-4 gy-0">
+                                            <div class="col-6">
+                                                <div class="counter-item bg-primary rounded text-center p-4 h-100">
+                                                    <div class="counter-item-icon mx-auto mb-3">
+                                                        <i class="fas fa-thumbs-up fa-3x text-white"></i>
+                                                    </div>
+                                                    <div class="counter-counting mb-3">
+                                                        <span class="text-white fs-2 fw-bold" data-toggle="counter-up">100</span>
+                                                        <span class="h1 fw-bold text-white">K +</span>
+                                                    </div>
+                                                    <h5 class="text-white mb-0">Happy Tourists</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="counter-item bg-dark rounded text-center p-4 h-100">
+                                                    <div class="counter-item-icon mx-auto mb-3">
+                                                        <i class="fas fa-certificate fa-3x text-white"></i>
+                                                    </div>
+                                                    <div class="counter-counting mb-3">
+                                                        <span class="text-white fs-2 fw-bold" data-toggle="counter-up">25</span>
+                                                        <span class="h1 fw-bold text-white"> +</span>
+                                                    </div>
+                                                    <h5 class="text-white mb-0">Awards Won</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rounded bg-primary p-4 position-absolute d-flex justify-content-center" style="width: 90%; height: 80px; top: -40px; left: 50%; transform: translateX(-50%);">
+                                <h3 class="mb-0 text-white">10 Years Of Making Memories</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- About End -->
+
+
+
+        <!-- Gallery Start -->
+        <div class="container-fluid gallery pb-5">
+            <div class="container pb-5">
+                <div class="text-center mx-auto pb-5 wow fadeInUp" data-wow-delay="0.2s" style="max-width: 800px;">
+                    <h4 class="text-primary">Our Gallery</h4>
+                    <h1 class="display-5 mb-4">A Glimpse Of The Experience</h1>
+                    <p class="mb-0">Our country if full of many hidden gems waiting for you to uncover with us.
+                    </p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="gallery-item">
+                            <img src="{% static 'img/Haller Park_.jpg' %}" class="img-fluid rounded w-100 h-50%" alt="">
+                            <p>Ngare Ndare </p>
+                        </div>
+                    </div>
+                    <div class="col-3 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="gallery-item">
+                            <img src="{% static 'img/Bird Nest hotel sleeps Kenyan safari-goers above the treetops.jpg' %}" class="img-fluid rounded w-100 h-90" alt="">
+                        </div>
+                    </div>
+                    <div class="col-3 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="gallery-item">
+                            <img src="{% static 'img/Diani Beach, Kenya.jpg' %}" class="img-fluid rounded w-100 h-100" alt="">
+                        </div>
+                    </div>
+                    <div class="col-3 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="gallery-item">
+                            <img src="{% static 'img/Alba Hotel Meru.jpg' %}" class="img-fluid rounded w-100 h-100" alt="">
+                        </div>
+                    </div>
+                    <div class="col-3 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="gallery-item">
+                            <img src="{% static 'img/chaka ranch.jpg' %}" class="img-fluid rounded w-100 h-100" alt="">
+                        </div>
+                    </div>
+                    <div class="col-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="gallery-item">
+                            <img src="{% static 'img/Fairmont Mount Kenya Safari Club, Nanyuki _ 2024 Updated Prices, Deals.jpg' %}" class="img-fluid rounded w-100 h-100" alt="">
+                        </div>
+                    </div>
+
+
+             <div class="row g-4">
+                    <div class="col-6 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="gallery-item">
+                            <img src="{% static 'img/quad bike.jpg' %}" class="img-fluid rounded w-100 h-100" alt="">
+                            <p>Ngare Ndare </p>
+                        </div>
+                    </div>
+                    <div class="col-3 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="gallery-item">
+                            <img src="{% static 'img/Fort Jesus Mombasa.jpg' %}" class="img-fluid rounded w-100 h-100" alt="">
+                        </div>
+                    </div>
+                    <div class="col-3 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="gallery-item">
+                            <img src="{% static 'img/Mahali Mzuri.jpg' %}" class="img-fluid rounded w-100 h-100" alt="">
+                        </div>
+                    </div>
+                    <div class="col-3 wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="gallery-item">
+                            <img src="{% static 'img/Alba Hotel Meru.jpg' %}" class="img-fluid rounded w-100 h-50" alt="">
+                        </div>
+                    </div>
+                    <div class="col-3 wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="gallery-item">
+                            <img src="{% static 'img/chaka ranch.jpg' %}" class="img-fluid rounded w-100 h-50" alt="">
+                        </div>
+                    </div>
+                    <div class="col-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="gallery-item">
+                            <img src="{% static 'img/Fairmont Mount Kenya Safari Club, Nanyuki _ 2024 Updated Prices, Deals.jpg' %}" class="img-fluid rounded w-100 h-50" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <!-- Gallery End -->
+
+
+
+        <!-- Footer Start -->
+
+    <!-- JavaScript Libraries -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../static/lib/wow/wow.min.js"></script>
+    <script src="../../static/lib/easing/easing.min.js"></script>
+    <script src="../../static/lib/waypoints/waypoints.min.js"></script>
+    <script src="../../static/lib/counterup/counterup.min.js"></script>
+    <script src="../../static/lib/lightbox/js/lightbox.min.js"></script>
+    <script src="../../static/lib/owlcarousel/owl.carousel.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="../../static/js/main.js"></script>
+
+    </body>
+</html>
+
+{% endblock %}
