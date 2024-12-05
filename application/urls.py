@@ -26,6 +26,14 @@ urlpatterns = [
     path('gallery/', views.gallery, name='gallery'),
     path('index/', views.index, name='index'),
     path('package/', views.package, name='package'),
-     path('testimonial/', views.testimonial, name='testimonial'),
+     path('narok/', views.narok, name='narok'),
+     path('coast/', views.coast, name='coast'),
+    path('testimonial/', views.testimonial, name='testimonial'),
+    path('central/', views.testimonial, name='central'),
+path('view_order/', views.view_order, name='view_order'),
+
+
+
+
 
 ]
