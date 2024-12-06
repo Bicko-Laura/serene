@@ -16,12 +16,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav mx-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="gallery.html" class="nav-item nav-link">Our Gallery</a>
-                        <a href="package.html" class="nav-item nav-link">Packages</a>
-                        <a href="testimonial.html" class="nav-item nav-link">Testimonial</a>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="{% url 'index' %}" class="nav-item nav-link active">Home</a>
+                        <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+                        <a href="{% url 'gallery' %}" class="nav-item nav-link">Our Gallery</a>
+                        <a href="{% url 'package' %}" class="nav-item nav-link">Packages</a>
+                        <a href="{% url 'testimonial' %}" class="nav-item nav-link">Testimonial</a>
+                        <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
 
                         </div>
 
@@ -32,7 +32,7 @@
                         <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
                         <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
                     </div>
-                </div>
+            </nav></div>
             </nav>
         </div>
         <!-- Navbar & Hero End
