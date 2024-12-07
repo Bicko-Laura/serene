@@ -1,8 +1,12 @@
 from django.contrib import messages
+from django.contrib.auth.context_processors import auth
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.shortcuts import render, get_object_or_404,redirect
 from django.contrib.auth import login
 
 from application.forms import OrderForm
+from application.models import Order
+from panel.forms import guest
 
 
 # Create your views here.
@@ -27,22 +31,12 @@ def coast(request):
 
 def central(request):
     return render(request, 'central.html')
+def home(request):
+    data = Order.objects.all()
+    return render(request,'home.html',{'data':data})
 
-# def view_order(request):
-#     if request.user.is_authenticated:
-#         if request.method == 'POST':
-#             form = OrderForm(request.POST, request.FILES)
-#             if form.is_valid():
-#                 order = form.save(commit=False)
-#                 order.user = request.user
-#                 order.save()
-#                 return redirect('package')
-#             else:
-#                 messages.error(request, 'Please fill in all the fields')
-#         else:
-#             form = OrderForm()
-#      else:
-#         return redirect('package', {'form': form })
+
+
 
 
 def view_order(request):
@@ -62,3 +56,56 @@ def view_order(request):
     else:
         messages.error(request, 'You need to be logged in to place an order.')
         return redirect('login')  # Repl
+
+
+@guest
+def login_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'auth/login.html', {'form': form})
+
+@guest
+def signup_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('home')
+    else:
+        form = UserCreationForm()
+    return render(request, 'auth/signup.html', {'form': form})
+
+@auth
+def edit(request,id):
+    order = get_object_or_404(Order, id=id)
+
+    if request.method == 'POST':
+        form = OrderForm(request.POST, request.FILES, instance=order)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Booking updated successfully!')
+            return redirect('home')
+        else:
+            messages.error(request, 'Please check form details')
+    else:
+       form = OrderForm(instance=order)
+    return render(request, 'edit.html', {'form': form,'order':order})
+
+def delete(request,id):
+    order = get_object_or_404(Order, id=id)
+
+    try:
+        order.delete()
+        messages.success(request, 'Booking deleted successfully!')
+
+    except Exception as e:
+        messages.error(request, 'Booking not deleted')
+
+        return redirect('home')

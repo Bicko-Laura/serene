@@ -2,15 +2,40 @@
 {% load static %}
  <link rel="stylesheet" href="{% static 'css/main.css' %}">
 {% block content %}
-<body style="background: url('https://cdn.pixabay.com/photo/2022/09/09/23/59/fern-7444015_960_720.jpg'); background-size: cover;">
+<body style="background: url('{% static 'img/Alba Hotel Meru.jpg' %}'); background-size: cover;">
 
 
-  <a href="#" class="logo d-flex align-items-center me-auto me-xl-0">
+ <div class="container-fluid nav-bar sticky-top px-4 py-2 py-lg-0">
+            <nav class="navbar navbar-expand-sm bg-warning navbar-light">
+                <a href="" class="navbar-brand p-0">
+                    <h1 class="display-6 text-dark"><i><img src="{% static 'img/favicon.ico' %}" alt=""> </i>SereneTours</h1>
 
-         <img src="{% static 'assets/img/logo2.png' %}" alt="" height="30px">
-        <h5 class="sitename" style="color: green; padding: 8px; text-decoration: none;"><span style="font-size: 30px;">S</span>hamba|-|bridge</h5>
-      </a>
-<h2 class="text-muted" style="text-align: center; font-weight: bold;">Register as Farmer</h2>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto py-0">
+                        <a href="{% url 'index' %}" class="nav-item nav-link active">Home</a>
+                        <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+                        <a href="{% url 'gallery' %}" class="nav-item nav-link">Our Gallery</a>
+                        <a href="{% url 'package' %}" class="nav-item nav-link">Packages</a>
+                        <a href="{% url 'testimonial' %}" class="nav-item nav-link">Testimonial</a>
+                        <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+
+                        </div>
+
+                    </div>
+                    <div class="team-icon d-none d-xl-flex justify-content-center me-3">
+                        <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square btn-light rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+            </nav></div>
+            </nav>
+        </div>
+<h2 class="text-muted" style="text-align: center; font-weight: bold;">Register as a Tourist</h2>
     <div class="container" style="margin-top: 5%;" >
     <div class="row justify-content-start">
     <div class="col-sm-6" style="rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 20px; color: #fff; text-align: center; padding: 10px; border: 1px solid green; border-radius: 10px;">
@@ -25,13 +50,6 @@
                 {% endif %}
             </div>
 
-       <div class="form-group">
-                <label for="{{ form.first_name.id_for_label }}" style="color: #ffff;">Farm-Number</label>
-                <input type="text" name="{{ form.first_name.name }}" class="form-control" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 10px 15px; color: #fff; font-size: 16px; outline: none; width: 100%; max-width: 100%; margin: 10px 0;" value="{{ form.first_name.value }}" />
-                {% if form.first_name.errors %}
-                <span class="text-danger">{{ form.first_name.errors }}</span>
-                {% endif %}
-            </div>
 
         <div class="form-group">
             <label for="{{ form.password1.id_for_label }}" style="color: #ffff;">Password</label>
@@ -44,13 +62,13 @@
             <input type="text" name="{{ form.password2.name }}" class="form-control" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 10px 15px; color: #fff; font-size: 16px; outline: none; width: 100%; max-width: 100%; margin: 10px 0;" value="{{ form.password1.value }}" />
             <span class="text-danger">{{ form.password2.errors }}</span>
         </div>
-        <button type="submit" class="" style="background-color: beige; border-radius: 10px; padding: 5px;">Register Me</button>
-            <a href="{% url 'login' %}" class="btn" style="color: cadetblue; font-weight: bold;">Already have an account? Login</a>
+        <button type="submit" class="btn btn-warning" style=" border-radius: 10px; padding: 5px;">Register Me</button>
+            <a href="{% url 'login' %}" class="btn" style="color: #fd7e14; font-weight: bold;">Already have an account? Login</a>
         </form>
     </div>
      <div class="col-sm-6">
 
-         <img src="https://thumbs.dreamstime.com/b/african-farmer-using-smartphone-research-banana-organic-vegetable-farm-agriculture-cultivation-concept-216332635.jpg" alt="" width="100%" height="100%">
+         <img src="{% static 'img/ngare ndare.jpg' %}" alt="" width="100%" height="100%">
 
       </a>
 
