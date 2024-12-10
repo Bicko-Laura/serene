@@ -34,6 +34,8 @@ path('view_order/', views.view_order, name='view_order'),
     path('login/', views.login_view, name='login'),
     path('signup/',views.signup_view, name='signup'),
     path('bookings/', views.bookings, name='bookings'),
+     path('edit/<int:id>/', views.edit, name='edit'),
+    path('delete/<int:id>/', views.delete, name='delete'),
 
 
 

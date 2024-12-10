@@ -85,12 +85,12 @@ def signup_view(request):
         form = UserCreationForm()
     return render(request, 'auth/signup.html', {'form': form})
 
-@auth
-def edit(request,id):
+# @auth
+def edit(request, id):
     order = get_object_or_404(Order, id=id)
 
     if request.method == 'POST':
-        form = OrderForm(request.POST, request.FILES, instance=order)
+        form = OrderForm(request.POST,  instance=order)
         if form.is_valid():
             form.save()
             messages.success(request, 'Booking updated successfully!')
@@ -101,13 +101,13 @@ def edit(request,id):
        form = OrderForm(instance=order)
     return render(request, 'edit.html', {'form': form,'order':order})
 
-def delete(request,id):
+def delete(request, id):
     order = get_object_or_404(Order, id=id)
 
     try:
         order.delete()
         messages.success(request, 'Booking deleted successfully!')
-
+        return redirect('bookings')
     except Exception as e:
         messages.error(request, 'Booking not deleted')
 
