@@ -24,15 +24,14 @@ from panel import views
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('panel/', views.panel_view, name='panel'),
+    # path('admin/', admin.site.urls),
+    # path('panel/', views.panel_view, name='panel'),
     path('signup/', views.signup_view, name='signup'),
     path('login/',views.login_view,name='login'),
 
-
-    path('edit/<int:id>/', views.edit,name='edit'),
-
-    path('delete/<int:id>/', views.delete, name='delete'),
+    # path('edit/<int:id>/', views.edit,name='edit'),
+    #
+    # path('delete/<int:id>/', views.delete, name='delete'),
     path('application/home/', views.home, name='home'),
 
 

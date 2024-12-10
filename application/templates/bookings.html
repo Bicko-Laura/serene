@@ -39,10 +39,10 @@
 
 </head>
 <body>
-<div class="container md-3">
+<div class="container md-6">
 <div class="table">
-    <table class="table table-warning" style="border: 2px dotted #fd7e14;">
-        <thead class="thead-dark">
+    <table class="table table-warning" style=" color: black; border: 2px dotted #fd7e14;">
+        <thead>
             <tr>
                 <th>FULL NAME</th>
                 <th>CONTACT</th>
@@ -51,6 +51,7 @@
                 <th>CHECK OUT DATE</th>
                 <th>NO. OF ADULTS</th>
                 <th>NO. OF CHILDREN</th>
+                <th>PACKAGE</th>
                 <th>PREFERENCES</th>
                 <th></th>
                 <th></th>
@@ -58,8 +59,7 @@
         </thead>
         <tbody>
 
-
-            {% for view_order in data %}
+        {% for order in data %}
 
             <tr>
 
@@ -70,10 +70,9 @@
                 <td>{{ order.check_out_date }}</td>
                 <td>{{ order.number_of_adults }}</td>
                 <td>{{ order.number_of_children }}</td>
+                <td>{{ order.select_package }}</td>
                 <td>{{ order.trip_preferences }}</td>
-                <td>
-
-                </td>
+                <td></td>
                 <td>
 
                 </td>

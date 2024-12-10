@@ -31,9 +31,12 @@ def coast(request):
 
 def central(request):
     return render(request, 'central.html')
-def home(request):
-    data = Order.objects.all()
-    return render(request,'home.html',{'data':data})
+def bookings(request):
+    if request.user.is_authenticated:
+     data = Order.objects.filter(user=request.user)
+    else:
+        data = []
+    return render(request, 'bookings.html', {'data':data})
 
 
 
@@ -47,15 +50,15 @@ def view_order(request):
                 order = form.save(commit=False)
                 order.user = request.user
                 order.save()
-                return redirect('package')  # Replace 'package' with the appropriate URL name
+                return redirect('package')
             else:
                 messages.error(request, 'Please fill in all the fields correctly.')
         else:
             form = OrderForm()
-        return render(request, 'view_order.html', {'form': form})  # Replace 'order_form.html' with your template name
+        return render(request, 'view_order.html', {'form': form})
     else:
         messages.error(request, 'You need to be logged in to place an order.')
-        return redirect('login')  # Repl
+        return redirect('login')
 
 
 @guest
@@ -65,7 +68,7 @@ def login_view(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('home')
+            return redirect('bookings')
     else:
         form = AuthenticationForm()
     return render(request, 'auth/login.html', {'form': form})
@@ -77,7 +80,7 @@ def signup_view(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('home')
+            return redirect('bookings')
     else:
         form = UserCreationForm()
     return render(request, 'auth/signup.html', {'form': form})
@@ -91,7 +94,7 @@ def edit(request,id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Booking updated successfully!')
-            return redirect('home')
+            return redirect('bookings')
         else:
             messages.error(request, 'Please check form details')
     else:
@@ -108,4 +111,4 @@ def delete(request,id):
     except Exception as e:
         messages.error(request, 'Booking not deleted')
 
-        return redirect('home')
+        return redirect('bookings')

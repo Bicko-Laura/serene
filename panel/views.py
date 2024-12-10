@@ -3,16 +3,16 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.shortcuts import  redirect, get_object_or_404
 
-from panel.forms import guest, auth, ProfileForm, ProductForm, WorkerForm
+from panel.forms import guest, auth
 from django.shortcuts import render
-from .models import Profile, Product, Worker, send_welcome_email
+# from .models import Profile, Product
 from django.contrib import messages
 
 
 
 # Create your views here.
 def home(request):
-    return render(request,'home.html')
+    return render(request, 'bookings.html')
 def package(request):
     return render(request, 'package.html')
 def narok(request):
@@ -66,46 +66,46 @@ def view_order(request):
 
 
 
-@auth
-def edit(request, id):
-    print(f"Request Method: {request.method}")
-    profile = get_object_or_404(Profile, id=id)
-    print(f"Profile: {profile}")
-    if request.method == 'POST':
-        form = ProfileForm(request.POST, request.FILES, instance=profile)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Updated successfully')
-            return redirect('about')
-        else:
-            print(f"Form Errors: {form.errors}")
-            messages.error(request, 'Please check details')
-    else:
-        form = ProfileForm(instance=profile)
-    return render(request, 'edit.html', {'form': form, 'profile': profile})
+# @auth
+# def edit(request, id):
+#     print(f"Request Method: {request.method}")
+#     profile = get_object_or_404(Profile, id=id)
+#     print(f"Profile: {profile}")
+#     if request.method == 'POST':
+#         form = ProfileForm(request.POST, request.FILES, instance=profile)
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, 'Updated successfully')
+#             return redirect('about')
+#         else:
+#             print(f"Form Errors: {form.errors}")
+#             messages.error(request, 'Please check details')
+#     else:
+#         form = ProfileForm(instance=profile)
+#     return render(request, 'edit.html', {'form': form, 'profile': profile})
 
 
 
 
 
-@auth
-def delete(request, id):
-    product = get_object_or_404(Product, id=id)
-
-    try:
-        product.delete()
-        messages.success(request, 'Product Succefully deleted')
-    except Exception as e:
-        messages.error(request, 'Productt not deleted')
-
-    return redirect('product')
-
-
-
-
-
-
-
-def panel_view(request):
-    return render(request, 'dashboard.html')
-
+# @auth
+# def delete(request, id):
+#     product = get_object_or_404(Product, id=id)
+#
+#     try:
+#         product.delete()
+#         messages.success(request, 'Product Succefully deleted')
+#     except Exception as e:
+#         messages.error(request, 'Productt not deleted')
+#
+#     return redirect('product')
+#
+#
+#
+#
+#
+#
+#
+# def panel_view(request):
+#     return render(request, 'dashboard.html')
+#
